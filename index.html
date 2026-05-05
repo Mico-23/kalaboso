@@ -32,6 +32,7 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
 header h2 {
@@ -42,22 +43,6 @@ nav a {
     color: white;
     text-decoration: none;
     margin-left: 25px;
-    position: relative;
-}
-
-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background: gold;
-    left: 0;
-    bottom: -5px;
-    transition: 0.3s;
-}
-
-nav a:hover::after {
-    width: 100%;
 }
 
 nav a:hover {
@@ -86,11 +71,6 @@ section {
     margin: 15px 0;
 }
 
-.text p {
-    opacity: 0.8;
-    margin-bottom: 25px;
-}
-
 /* BUTTON */
 .btn {
     display: inline-block;
@@ -104,7 +84,7 @@ section {
 }
 
 .btn:hover {
-    transform: translateY(-3px) scale(1.05);
+    transform: scale(1.05);
     box-shadow: 0 0 20px gold;
 }
 
@@ -112,7 +92,6 @@ section {
 .image img {
     width: 350px;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255,215,0,0.3);
 }
 
 /* BOX */
@@ -122,29 +101,24 @@ section {
     padding: 25px;
     margin-top: 20px;
     border-radius: 15px;
-    transition: 0.3s;
+    line-height: 1.6;
 }
 
-.box:hover {
-    transform: translateY(-8px);
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
 }
 
-/* PORTFOLIO GRID */
-.portfolio {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.portfolio img {
-    width: 250px;
-    margin: 10px;
+.gallery img {
+    width: 100%;
     border-radius: 12px;
-    transition: 0.3s;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.portfolio img:hover {
+.gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px gold;
 }
@@ -156,7 +130,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.92);
     display: none;
     align-items: center;
     justify-content: center;
@@ -183,7 +157,7 @@ h2 {
     }
 
     .image img {
-        margin-top: 30px;
+        margin-top: 20px;
     }
 }
 </style>
@@ -196,8 +170,7 @@ h2 {
     <nav>
         <a href="#home">HOME</a>
         <a href="#about">ABOUT</a>
-        <a href="#services">SERVICES</a>
-        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#gallery">GALLERY</a>
         <a href="#blog">BLOG</a>
         <a href="#contact">CONTACT</a>
     </nav>
@@ -209,22 +182,29 @@ h2 {
         <h1>Hello, I'm</h1>
         <h1>Miguel Enrico</h1>
         <h3>Graphic Designer</h3>
-        <p>
-            I create clean, modern, and meaningful designs.
-            Passionate about creativity and continuous growth.
-        </p>
         <a href="#contact" class="btn">LET'S TALK</a>
     </div>
 
     <div class="image">
-        <img src="IMG_4483-removebg-preview.png" alt="Profile">
+        <img src="IMG_4483-removebg-preview.png">
     </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-    <h2>PORTFOLIO</h2>
-    <div class="box portfolio">
+<!-- ABOUT -->
+<section id="about">
+    <h2>ABOUT ME</h2>
+    <div class="box">
+        <p>
+            I am Miguel Enrico, a student at Colegio de Sta. Teresa de Avila. I am passionate about learning, improving my skills, and growing as a person every day. I enjoy design, creativity, and exploring new ideas that help me develop both academically and personally.
+        </p>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <h2>PORTFOLIO GALLERY</h2>
+
+    <div class="gallery">
         <img src="1415.jpg" onclick="openImage(this.src)">
         <img src="1417.jpg" onclick="openImage(this.src)">
         <img src="1416.jpg" onclick="openImage(this.src)">
@@ -232,10 +212,45 @@ h2 {
     </div>
 </section>
 
-<!-- LIGHTBOX -->
-<div id="lightbox" onclick="closeImage()">
-    <img id="lightbox-img">
-</div>
+<!-- BLOG -->
+<section id="blog">
+    <h2>BLOG / COLLEGE JOURNEY</h2>
+
+    <div class="box">
+        <h3>📘 1st Year - 1st Semester</h3>
+        <p>Adjustment to college life, new environment, and academic pressure.</p>
+        <p>Learning time management and building basic study habits.</p>
+        <p>First experience of independence and responsibility.</p>
+    </div>
+
+    <div class="box">
+        <h3>📘 1st Year - 2nd Semester</h3>
+        <p>More confidence in handling school requirements.</p>
+        <p>Improved study routine and better organization of tasks.</p>
+        <p>Started developing personal discipline.</p>
+    </div>
+
+    <div class="box">
+        <h3>📗 2nd Year - 1st Semester</h3>
+        <p>More difficult subjects and higher expectations.</p>
+        <p>Stronger focus on academics and creative output.</p>
+        <p>Improved problem-solving and critical thinking skills.</p>
+    </div>
+
+    <div class="box">
+        <h3>📗 2nd Year - 2nd Semester</h3>
+        <p>Real growth in maturity and responsibility.</p>
+        <p>Better balance between schoolwork and personal life.</p>
+        <p>More confident in completing tasks independently.</p>
+    </div>
+
+    <div class="box">
+        <h3>📙 Reflection</h3>
+        <p>
+            My journey in college has been full of challenges, growth, and learning. Every semester shaped me into a better version of myself. I am still improving and working toward my goals in life.
+        </p>
+    </div>
+</section>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -245,6 +260,11 @@ h2 {
         <p>Phone: 09270722278</p>
     </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeImage()">
+    <img id="lightbox-img">
+</div>
 
 <script>
 function openImage(src) {
