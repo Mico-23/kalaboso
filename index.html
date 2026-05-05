@@ -1,148 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My College Diary</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>My College Diary</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: Georgia, serif;
-            background: #1a1919;
-        }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: white;
+}
 
-        header {
-            background: #000;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            position: sticky;
-            top: 0;
-        }
+/* HEADER */
+header {
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6);
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
 
-        header nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            position: relative;
-            transition: 0.3s;
-        }
+header h2 {
+    color: gold;
+}
 
-        header nav a::after {
-            content: "";
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            background: gold;
-            left: 0;
-            bottom: -5px;
-            transition: 0.3s;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    position: relative;
+}
 
-        header nav a:hover::after {
-            width: 100%;
-        }
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: gold;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
 
-        header nav a:hover {
-            color: gold;
-        }
+nav a:hover::after {
+    width: 100%;
+}
 
-        section {
-            padding: 80px 60px;
-            color: white;
-        }
+nav a:hover {
+    color: gold;
+}
 
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            min-height: 90vh;
-        }
+/* SECTIONS */
+section {
+    padding: 100px 60px;
+}
 
-        .text {
-            max-width: 600px;
-        }
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 90vh;
+}
 
-        .text h1 {
-            font-size: 50px;
-        }
+.text h1 {
+    font-size: 55px;
+}
 
-        .text h3 {
-            color: gold;
-            margin: 20px 0;
-        }
+.text h3 {
+    color: gold;
+    margin: 15px 0;
+}
 
-        .btn {
-            background: gold;
-            color: black;
-            padding: 12px 28px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 5px;
-        }
+.text p {
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
 
-        .btn:hover {
-            transform: scale(1.1);
-            background: white;
-            box-shadow: 0 0 15px gold;
-        }
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: linear-gradient(45deg, gold, orange);
+    color: black;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        .btn:active {
-            transform: scale(0.95);
-        }
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 20px gold;
+}
 
-        .image img {
-            width: 360px;
-            transition: 0.4s;
-        }
+/* IMAGE */
+.image img {
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,215,0,0.3);
+}
 
-        .image img:hover {
-            transform: scale(1.05);
-        }
+/* BOX */
+.box {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
 
-        .box {
-            background: rgba(0,0,0,0.2);
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
+.box:hover {
+    transform: translateY(-8px);
+}
 
-        .box:hover {
-            transform: translateY(-5px);
-        }
+/* PORTFOLIO GRID */
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        .box:active {
-            transform: scale(0.97);
-        }
+.portfolio img {
+    width: 250px;
+    margin: 10px;
+    border-radius: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+}
 
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+.portfolio img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px gold;
+}
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+/* TITLES */
+h2 {
+    color: gold;
+    margin-bottom: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image img {
+        margin-top: 30px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h2>MY COLLEGE DIARY</h2>
+    <h2>MY DIARY</h2>
     <nav>
         <a href="#home">HOME</a>
         <a href="#about">ABOUT</a>
@@ -153,69 +203,39 @@
     </nav>
 </header>
 
-<!-- HOME -->
+<!-- HERO -->
 <section id="home" class="hero">
     <div class="text">
-        <h1>Hello! I'm</h1>
-        <h1>Delos Reyes, Miguel Enrico</h1>
-        <h3>GRAPHIC DESIGNER</h3>
+        <h1>Hello, I'm</h1>
+        <h1>Miguel Enrico</h1>
+        <h3>Graphic Designer</h3>
         <p>
-            Creative thinker. Visual storyteller. Passionate designer.
-            I build modern, clean, and engaging digital experiences.
+            I create clean, modern, and meaningful designs.
+            Passionate about creativity and continuous growth.
         </p>
-        <button class="btn">LET'S TALK</button>
+        <a href="#contact" class="btn">LET'S TALK</a>
     </div>
 
     <div class="image">
-        <img src="IMG_4483-removebg-preview.png" alt="Profile Image">
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-    <h2>ABOUT ME</h2>
-    <div class="box">
-        <p>
-            Hi! My name is Miguel. I’m a simple person who enjoys learning new things. Every day, I try to stay productive and do my best in the things that matter to me, especially my studies.
-
-            I also like exploring—whether it’s on the internet, new ideas, or simple hobbies. I can be quiet at times, but once I’m comfortable, I can be talkative too.
-
-            I believe that you don’t have to be perfect, as long as you keep growing and putting in effort. For me, every day is a chance to become a better version of myself.
-        </p>
-    </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-    <h2>SERVICES</h2>
-    <div class="box">
-        <p>✔ Logo Design</p>
-        <p>✔ Branding</p>
-        <p>✔ UI/UX Design</p>
+        <img src="IMG_4483-removebg-preview.png" alt="Profile">
     </div>
 </section>
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
     <h2>PORTFOLIO</h2>
-    <div class="box">
-        <p>
-            Here are some of my sample works that reflect my creativity, skills, and learning experiences.
-        </p>
-        <img src="sample1.png" style="width:500px;">
-        <img src="sample2.png" style="width:300px;">
+    <div class="box portfolio">
+        <img src="1415.jpg" onclick="openImage(this.src)">
+        <img src="1417.jpg" onclick="openImage(this.src)">
+        <img src="1416.jpg" onclick="openImage(this.src)">
+        <img src="1231.jpg" onclick="openImage(this.src)">
     </div>
 </section>
 
-<!-- BLOG -->
-<section id="blog">
-    <h2>BLOG</h2>
-    <div class="box">
-        <p>
-            I share my personal experiences, creative design ideas, and my journey through college life here.
-        </p>
-    </div>
-</section>
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeImage()">
+    <img id="lightbox-img">
+</div>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -225,6 +245,17 @@
         <p>Phone: 09270722278</p>
     </div>
 </section>
+
+<script>
+function openImage(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeImage() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>
